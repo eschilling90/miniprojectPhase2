@@ -535,7 +535,7 @@ class MapDate(webapp2.RequestHandler):
 		for image in cImage.query():
 			lon_offset = random.uniform(0, 0.000378075)
 			lat_offset = random.uniform(0, 0.00077784061)
-			result.append({'img': images.get_serving_url(image.blobKey), 'lat': image.loc.lat + lat_offset, 'lon': image.loc.lon + lon_offset, 'timestamp': image.creationDate})
+			result.append({'img': images.get_serving_url(image.blobKey), 'lat': image.lat + lat_offset, 'lon': image.lon + lon_offset, 'timestamp': image.creationDate})
 		logging.info(json.dumps({'streamNames': result}))
 		self.response.write(self.request.get("callback") + "(" + json.dumps({'streamNames': result}) + ")")
 

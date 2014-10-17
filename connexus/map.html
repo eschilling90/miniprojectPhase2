@@ -92,18 +92,24 @@
 		var lngSpan = northEast.lng() - southWest.lng();
 		var latSpan = northEast.lat() - southWest.lat();
 		for ( var i = 0; i < len; i++ ) {
-			var lat = json_data.streamNames[i].lat
-			var lng = json_data.streamNames[i].lon
-			$('#map_canvas').gmap('addMarker', { 
-				'position': new google.maps.LatLng(lat, lng) 
-			}).click(function() {
-				$('#map_canvas').gmap('openInfoWindow', { content : '<img src=\"" + json_data.streamNames[i].img + "\"style="width:100px;height:100px">' }, this);
-			});
+			if (isInDateRange(json_data.streamNames[i])) {
+				var lat = json_data.streamNames[i].lat
+				var lng = json_data.streamNames[i].lon
+				$('#map_canvas').gmap('addMarker', { 
+					'position': new google.maps.LatLng(lat, lng) 
+				}).click(function() {
+					$('#map_canvas').gmap('openInfoWindow', { content : "<img src=\"" + json_data.streamNames[i].img + "\"style=width:100px;height:100px>" }, this);
+				});
+			}
 		}
 		$('#map_canvas').gmap('set', 'MarkerClusterer', new MarkerClusterer(map, $(this).gmap('get', 'markers')));
 		// To call methods in MarkerClusterer simply call 
 		// $('#map_canvas').gmap('get', 'MarkerClusterer').callingSomeMethod();
 		});
+	}
+
+	function isInDateRange(stream) {
+		
 	}
   </script>
 </head>

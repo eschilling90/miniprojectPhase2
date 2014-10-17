@@ -26,6 +26,9 @@ handlers:
 - url: /test
   static_dir: test
 
+- url: /img
+  static_dir: img
+  
 - url: /.*
   script: connexus.application
 

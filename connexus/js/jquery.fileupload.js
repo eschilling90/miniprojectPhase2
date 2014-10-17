@@ -105,10 +105,10 @@
             // By default, each file of a selection is uploaded using an individual
             // request for XHR type uploads. Set to false to upload file
             // selections in one request each:
-            singleFileUploads: true,
+            singleFileUploads: false,
             // To limit the number of files uploaded with one XHR request,
             // set the following option to an integer greater than 0:
-            limitMultiFileUploads: undefined,
+            limitMultiFileUploads: 1,
             // The following option limits the number of files uploaded with one
             // XHR request to keep the request size under or equal to the defined
             // limit in bytes:
@@ -119,7 +119,7 @@
             limitMultiFileUploadSizeOverhead: 512,
             // Set the following option to true to issue all file upload requests
             // in a sequential order:
-            sequentialUploads: false,
+            sequentialUploads: true,
             // To limit the number of concurrent uploads,
             // set the following option to an integer greater than 0:
             limitConcurrentUploads: undefined,

@@ -9,7 +9,8 @@ class Image(ndb.Model):
 	blobKey = ndb.BlobKeyProperty()
 	creationDate = ndb.DateProperty(auto_now_add=True)
 	comment = ndb.StringProperty()
-	loc = ndb.GeoPtProperty(default=(30.267153, -97.743061))
+	lat = ndb.FloatProperty(default=30.267153)
+	lon = ndb.FloatProperty(default=-97.743061)
 
 	@staticmethod
 	def addImage(streamId, imageId, blobKey, loc):
@@ -17,6 +18,6 @@ class Image(ndb.Model):
 		image.streamId = streamId
 		image.imageId = imageId
 		image.blobKey = blobKey
-		image.loc.lat = loc[0]
-		image.loc.lon = loc[1]
+		image.lat = loc[0]
+		image.lon = loc[1]
 		image.put()

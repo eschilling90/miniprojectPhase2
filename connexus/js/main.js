@@ -18,7 +18,7 @@ $(function () {
     $('#fileupload').fileupload({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
-        url: 'server/php/'
+        url: '//localhost:27080/uploadimage'
     });
 
     // Enable iframe cross-domain access via redirect option:
@@ -34,7 +34,7 @@ $(function () {
     if (window.location.hostname === 'blueimp.github.io') {
         // Demo settings:
         $('#fileupload').fileupload('option', {
-            url: '//jquery-file-upload.appspot.com/',
+            url: '//localhost:27080/uploadimage',
             // Enable image resizing, except for Android and Opera,
             // which actually support image resizing, but fail to
             // send Blob objects via XHR requests:
